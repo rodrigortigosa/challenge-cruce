@@ -1,4 +1,4 @@
-const Ruta = (props) => {
+const Path = (props) => {
   const departament = props.departament;
   const category = props.category;
   return (
@@ -9,4 +9,4 @@ const Ruta = (props) => {
   );
 };
 
-export default Ruta;
+export default Path;
