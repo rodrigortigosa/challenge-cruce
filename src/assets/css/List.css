@@ -1,5 +1,5 @@
 @media (min-width: 578px) {
-  .separator {
+  #col-separator {
     display: none;
   }
 }
