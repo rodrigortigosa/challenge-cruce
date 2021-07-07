@@ -2,3 +2,17 @@
 #select-order {
   width: 100%;
 }
+
+@media (min-width: 768px) {
+  #select-filter {
+    width: 30%;
+  }
+
+  #select-order {
+    width: 60%;
+  }
+
+  #select-filter {
+    border: 0;
+  }
+}
