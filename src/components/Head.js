@@ -4,7 +4,7 @@ import "../assets/css/Head.css";
 
 const Head = () => {
   return (
-    <Row className="justify-content-center justify-content-md-between row-cols-1 row-cols-md-3 mt-3 mb-4">
+    <Row className="justify-content-center justify-content-md-between row-cols-1 row-cols-md-3 mt-md-3 mb-4 mb-md-0">
       <Col md={4} lg={3} className="text-center text-md-left mb-4 mb-md-0">
         <Path departament="Juguetes" category="Funko Pop" />
       </Col>

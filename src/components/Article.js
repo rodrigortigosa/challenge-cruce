@@ -7,7 +7,7 @@ const Article = (props) => {
   const price = props.price;
 
   return (
-    <Col className="my-3">
+    <Col className="mb-3">
       <div className="d-flex justify-content-center">
         <div className="div-img-article">
           <Image
