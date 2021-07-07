@@ -5,7 +5,7 @@ const Head = () => {
   return (
     <Row className="justify-content-center row-cols-1 row-cols-md-3 mt-3">
       <Col md={4} className="text-center mb-4">
-        <Ruta />
+        <Ruta departament="Juguetes" category="Funko Pop" />
       </Col>
 
       <Col md={4} className="d-flex justify-content-center mb-2">

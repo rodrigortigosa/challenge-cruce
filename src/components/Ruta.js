@@ -1,7 +1,10 @@
-const Ruta = () => {
+const Ruta = (props) => {
+  const departament = props.departament;
+  const category = props.category;
   return (
     <span>
-      Inicio / Juguetes / <b>Funko Pop</b>
+      {`Inicio / ${departament} / `}
+      <b>{category}</b>
     </span>
   );
 };
