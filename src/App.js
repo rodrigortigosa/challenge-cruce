@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import Ruta from "./components/Ruta";
+import Banner from "./components/Banner";
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
       <Container fluid>
         <Ruta />
 
-        {/* Imagen */}
+        <Banner />
 
         {/* <Listado></Listado> */}
       </Container>
