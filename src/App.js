@@ -11,8 +11,10 @@ const App = () => {
   return (
     <div className="App">
       <Container fluid>
-        <Head />
-        <Banner />
+        <div className="d-flex flex-column flex-md-column-reverse my-4">
+          <Head />
+          <Banner />
+        </div>
         <List articles={products} />
       </Container>
     </div>
