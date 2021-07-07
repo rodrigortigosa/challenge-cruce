@@ -1,5 +1,6 @@
-import { Row, Col, DropdownButton, Dropdown } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Path from "./Path";
+import "../assets/css/Head.css";
 
 const Head = () => {
   return (
@@ -9,30 +10,21 @@ const Head = () => {
       </Col>
 
       <Col md={4} className="d-flex justify-content-center mb-2">
-        <DropdownButton
-          id="dropdown-item-button"
-          title="Filtrar"
-          variant="secondary"
-          drop="right"
-        >
-          <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-          <Dropdown.Item as="button">Action</Dropdown.Item>
-          <Dropdown.Item as="button">Another action</Dropdown.Item>
-          <Dropdown.Item as="button">Something else</Dropdown.Item>
-        </DropdownButton>
+        <select id="select-filter" name="select-filter">
+          <option value="title">Filtrar</option>
+          <option value="opcion1">Filtro 1</option>
+          <option value="opcion2">Filtro 2</option>
+          <option value="opcion3">Filtro 3</option>
+        </select>
       </Col>
 
       <Col md={4} className="d-flex justify-content-center mb-4">
-        <DropdownButton
-          id="dropdown-item-button"
-          title="Ordenar por"
-          variant="secondary"
-        >
-          <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-          <Dropdown.Item as="button">Action</Dropdown.Item>
-          <Dropdown.Item as="button">Another action</Dropdown.Item>
-          <Dropdown.Item as="button">Something else</Dropdown.Item>
-        </DropdownButton>
+        <select id="select-order" name="select-order">
+          <option value="title">Ordenar por</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
       </Col>
     </Row>
   );
