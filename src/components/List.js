@@ -5,7 +5,7 @@ const List = (props) => {
   const articles = props.articles;
 
   return (
-    <Row className="row-cols-1 row-cols-md-3">
+    <Row className="row-cols-1 row-cols-md-3 my-4">
       {articles.map((article, index) => (
         <Article
           key={index}
