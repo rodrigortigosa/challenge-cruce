@@ -4,7 +4,7 @@ import "../assets/css/Head.css";
 
 const Head = () => {
   return (
-    <Row className="justify-content-center row-cols-1 row-cols-md-3 mt-3">
+    <Row className="justify-content-center row-cols-1 row-cols-md-3 mt-3 mb-4">
       <Col md={4} className="text-center mb-4">
         <Path departament="Juguetes" category="Funko Pop" />
       </Col>
@@ -18,7 +18,7 @@ const Head = () => {
         </select>
       </Col>
 
-      <Col md={4} className="d-flex justify-content-center mb-4">
+      <Col md={4} className="d-flex justify-content-center">
         <select id="select-order" name="select-order">
           <option value="title">Ordenar por</option>
           <option value="opcion1">Opción 1</option>
