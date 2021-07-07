@@ -2,8 +2,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, DropdownButton, Dropdown } from "react-bootstrap";
 import Ruta from "./components/Ruta";
 import Banner from "./components/Banner";
+import List from "./components/List";
+import productsJSON from "./products.json";
 
 const App = () => {
+  const products = productsJSON;
+
   return (
     <div className="App">
       <Container fluid>
@@ -31,11 +35,7 @@ const App = () => {
           </Col>
         </Row>
         <Banner />
-
-        {/* <Listado></Listado> */}
-        <Row className="row-cols-1 row-cols-md-3">
-          <Col></Col>
-        </Row>
+        <List articles={products} />
       </Container>
     </div>
   );
