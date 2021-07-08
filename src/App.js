@@ -3,10 +3,19 @@ import { Container } from "react-bootstrap";
 import Head from "./components/Head";
 import Banner from "./components/Banner";
 import List from "./components/List";
-import productsJSON from "./products.json";
+/* import productsJSON from "./products.json"; */
+import productsService from "./services/products";
+import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const products = productsJSON;
+  /* const products = productsJSON; */
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    productsService.getAll().then((initialProducts) => {
+      setProducts(initialProducts);
+    });
+  }, []);
 
   return (
     <div className="App">
