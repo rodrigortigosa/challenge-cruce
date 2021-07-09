@@ -17,7 +17,7 @@ const Article = (props) => {
               alt={`imagen del ${name}`}
             ></Image>
           </div>
-          <div className="article-description w-100 text-left ml-3 ml-md-0 mt-md-2 d-flex flex-column">
+          <div className="article-description w-100 text-left ms-3 ms-md-0 mt-md-2 d-flex flex-column">
             <span className="article-name">{name}</span>
             <span className="article-price mt-3 mt-md-2">{`$${price}`}</span>
           </div>
