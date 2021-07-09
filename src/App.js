@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { HOME, NUEVO_PRODUCTO } from "./config/router/paths";
-import Form from "./Form";
+import Form from "./components/Form";
 import Home from "./components/Home";
 
 const App = () => {
