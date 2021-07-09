@@ -70,9 +70,9 @@ const Form = () => {
                     <button type="submit" className="btn btn-primary">
                       Guardar
                     </button>
-                    <button type="submit" className="btn btn-light">
+                    <a href="/catalogo" className="btn btn-light" role="button">
                       Volver
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
