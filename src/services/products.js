@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const PORT = 3001;
-const baseUrl = `http://localhost:${PORT}`;
+/* const PORT = 3001;
+const baseUrl = `http://localhost:${PORT}`; */
+const baseUrl = "https://catalogo-cruce.herokuapp.com";
 
 const getAll = () => {
-  const request = axios.get(baseUrl + "/api/products");
+  const request = axios.get(baseUrl + "/products");
   return request.then((response) => response.data);
 };
 
