@@ -10,9 +10,9 @@ const List = (props) => {
       <Col id="col-separator">
         <hr className="separator" />
       </Col>
-      {articles.map((article, index) => (
+      {articles.map((article) => (
         <Article
-          key={index}
+          key={article.id}
           image={article.image}
           name={article.name}
           price={article.price}
