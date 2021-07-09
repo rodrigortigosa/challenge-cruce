@@ -3,18 +3,10 @@ import Head from "./Head";
 import Banner from "./Banner";
 import List from "./List";
 /* import productsJSON from "./products.json"; */
-import productsService from "../services/products";
-import React, { useState, useEffect } from "react";
 
-const Home = () => {
+const Home = (props) => {
   /* const products = productsJSON; */
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    productsService.getAll().then((initialProducts) => {
-      setProducts(initialProducts);
-    });
-  }, []);
+  const products = props.products;
 
   return (
     <Container fluid>
