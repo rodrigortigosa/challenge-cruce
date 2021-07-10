@@ -1,7 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { CATALOGO, HOME, NUEVO_PRODUCTO } from "./config/router/paths";
-import Form from "./components/Form";
+import {
+  CATALOGO,
+  HOME,
+  NUEVO_PRODUCTO,
+  EDITAR_PRODUCTO,
+} from "./config/router/paths";
+import FormAddProduct from "./components/FormAddProduct";
+import FormEditProduct from "./components/FormEditProduct";
 import Home from "./components/Home";
 import Catalogue from "./components/Catalogue";
 import productsService from "./services/products";
@@ -25,7 +31,8 @@ const App = () => {
     <div className="App">
       <Router>
         <Switch>
-          <Route path={NUEVO_PRODUCTO} component={Form} exact />
+          <Route path={NUEVO_PRODUCTO} component={FormAddProduct} exact />
+          <Route path={EDITAR_PRODUCTO} component={FormEditProduct} exact />
           <Route path={CATALOGO} component={Catalogue} exact />
           <Route path={HOME} exact>
             <Home products={products} />

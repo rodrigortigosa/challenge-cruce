@@ -4,7 +4,12 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import productsService from "../services/products";
-import { CATALOGO, NUEVO_PRODUCTO } from "../config/router/paths";
+import {
+  CATALOGO,
+  EDITAR_PRODUCTO,
+  NUEVO_PRODUCTO,
+} from "../config/router/paths";
+import { generatePath, Link } from "react-router-dom";
 
 const Catalogue = () => {
   const [products, setProducts] = useState([]);
@@ -73,18 +78,34 @@ const Catalogue = () => {
                   return (
                     <tr key={product.id}>
                       <td>
-                        <a href={`catalogo/producto/${product.id}`}>
+                        <Link
+                          to={generatePath(EDITAR_PRODUCTO, { id: product.id })}
+                        >
                           {product.name}
-                        </a>
+                        </Link>
                       </td>
                       <td>{`$${product.price}`}</td>
                       <td className="text-right">
-                        <a href={NUEVO_PRODUCTO} className="btn">
+                        <Link
+                          to={generatePath(EDITAR_PRODUCTO, { id: product.id })}
+                          style={{
+                            color: "black",
+                            verticalAlign: "middle",
+                            padding: ".375rem .75rem",
+                          }}
+                        >
                           <FontAwesomeIcon icon={faEye} />
-                        </a>
-                        <a href="/catalogo/editarProducto" className="btn">
+                        </Link>
+                        <Link
+                          to={generatePath(EDITAR_PRODUCTO, { id: product.id })}
+                          style={{
+                            color: "black",
+                            verticalAlign: "middle",
+                            padding: ".375rem .75rem",
+                          }}
+                        >
                           <FontAwesomeIcon icon={faPencilAlt} />
-                        </a>
+                        </Link>
                         <button
                           type="button"
                           className="btn"

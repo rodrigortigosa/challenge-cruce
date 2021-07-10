@@ -1,7 +1,7 @@
 import { useState } from "react";
 import productsService from "../services/products";
 
-const Form = () => {
+const FormAddProduct = () => {
   const [newName, setNewName] = useState("");
   const [newImage, setNewImage] = useState(
     "http://via.placeholder.com/150x150"
@@ -139,4 +139,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormAddProduct;
