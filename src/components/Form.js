@@ -1,8 +1,51 @@
+import { useState } from "react";
+import productsService from "../services/products";
+
 const Form = () => {
+  const [newName, setNewName] = useState("");
+  const [newImage, setNewImage] = useState(
+    "http://via.placeholder.com/150x150"
+  );
+  const [newPrice, setNewPrice] = useState("");
+
+  const handleChangeName = (event) => {
+    setNewName(event.target.value);
+  };
+
+  const handleChangeImage = (event) => {
+    setNewImage(event.target.value);
+  };
+
+  const handleChangePrice = (event) => {
+    setNewPrice(event.target.value);
+  };
+
+  const handleSubmitAddProduct = (event) => {
+    event.preventDefault();
+
+    const productToAdd = {
+      name: newName,
+      image: newImage,
+      price: newPrice,
+    };
+
+    productsService.create(productToAdd);
+    setNewName("");
+    setNewImage("");
+    setNewPrice("");
+
+    alert("Producto agregado");
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-sm bg-light navbar-light">
-        <a className="navbar-brand" href="#">
+        <a
+          className="navbar-brand"
+          href="http://www.e-cruce.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             src="http://www.e-cruce.com/wp-content/uploads/2019/10/cruce.svg"
             alt="logo"
@@ -11,7 +54,7 @@ const Form = () => {
 
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/catalogo">
               Catalogo
             </a>
           </li>
@@ -21,7 +64,7 @@ const Form = () => {
       <div className="container-fluid mt-4">
         <div className="card">
           <div className="card-body">
-            <form>
+            <form onSubmit={handleSubmitAddProduct}>
               <div className="row">
                 <div className="col mb-4">
                   <img
@@ -36,10 +79,12 @@ const Form = () => {
                   <div className="form-group">
                     <label>URL de la imagen</label>
                     <input
-                      className="form-control"
                       type="url"
                       name="image"
+                      className="form-control"
                       defaultValue="http://via.placeholder.com/150x150"
+                      onChange={handleChangeImage}
+                      required
                     />
                   </div>
                 </div>
@@ -48,7 +93,14 @@ const Form = () => {
                 <div className="col-sm-3">
                   <div className="form-group">
                     <label>Nombre del producto</label>
-                    <input className="form-control" type="text" name="name" />
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      onChange={handleChangeName}
+                      value={newName}
+                      required
+                    />
                   </div>
                 </div>
               </div>
@@ -57,9 +109,12 @@ const Form = () => {
                   <div className="form-group">
                     <label>Precio</label>
                     <input
-                      className="form-control"
                       type="number"
                       name="price"
+                      className="form-control"
+                      onChange={handleChangePrice}
+                      value={newPrice}
+                      required
                     />
                   </div>
                 </div>

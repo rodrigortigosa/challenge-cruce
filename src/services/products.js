@@ -9,5 +9,9 @@ const getAll = () => {
   return request.then((response) => response.data);
 };
 
+const create = (newObject) => {
+  axios.post(baseUrl + "/products", newObject);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { getAll };
+export default { getAll, create };
