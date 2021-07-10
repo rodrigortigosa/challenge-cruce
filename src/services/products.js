@@ -9,9 +9,12 @@ const getAll = () => {
   return request.then((response) => response.data);
 };
 
-const create = (newObject) => {
-  axios.post(baseUrl + "/products", newObject);
+const create = (newProduct) => {
+  axios.post(baseUrl + "/products", newProduct);
 };
 
+const remove = (id) => {
+  axios.delete(`${baseUrl}/products/${id}`);
+};
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { getAll, create };
+export default { getAll, create, remove };

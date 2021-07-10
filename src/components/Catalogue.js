@@ -20,7 +20,11 @@ const Catalogue = () => {
       });
   }, []);
 
-  console.log(products);
+  const handleDeleteClick = (idProduct) => {
+    productsService.remove(idProduct);
+    setProducts(products.filter((product) => product.id !== idProduct));
+    alert("Producto eliminado.");
+  };
 
   return (
     <div>
@@ -81,7 +85,11 @@ const Catalogue = () => {
                         <a href="/catalogo/editarProducto" className="btn">
                           <FontAwesomeIcon icon={faPencilAlt} />
                         </a>
-                        <button type="button" className="btn">
+                        <button
+                          type="button"
+                          className="btn"
+                          onClick={() => handleDeleteClick(product.id)}
+                        >
                           <FontAwesomeIcon icon={faTrashAlt} />
                         </button>
                       </td>
