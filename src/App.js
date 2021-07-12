@@ -6,10 +6,10 @@ import {
   NUEVO_PRODUCTO,
   EDITAR_PRODUCTO,
 } from "./config/router/paths";
-import FormAddProduct from "./components/FormAddProduct";
-import FormEditProduct from "./components/FormEditProduct";
+import CatalogueAdd from "./components/catalogue/Add";
+import CatalogueEdit from "./components/catalogue/Edit";
+import CatalogueList from "./components/catalogue/List";
 import Home from "./components/Home";
-import Catalogue from "./components/Catalogue";
 import productsService from "./services/products";
 import React, { useState, useEffect } from "react";
 
@@ -31,9 +31,9 @@ const App = () => {
     <div className="App">
       <Router>
         <Switch>
-          <Route path={NUEVO_PRODUCTO} component={FormAddProduct} exact />
-          <Route path={EDITAR_PRODUCTO} component={FormEditProduct} exact />
-          <Route path={CATALOGO} component={Catalogue} exact />
+          <Route path={NUEVO_PRODUCTO} component={CatalogueAdd} exact />
+          <Route path={EDITAR_PRODUCTO} component={CatalogueEdit} exact />
+          <Route path={CATALOGO} component={CatalogueList} exact />
           <Route path={HOME} exact>
             <Home products={products} />
           </Route>

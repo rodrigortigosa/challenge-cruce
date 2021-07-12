@@ -1,40 +1,55 @@
+import productsService from "../../services/products";
 import { useState } from "react";
-import productsService from "../services/products";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-const FormAddProduct = () => {
-  const [newName, setNewName] = useState("");
-  const [newImage, setNewImage] = useState(
-    "http://via.placeholder.com/150x150"
-  );
-  const [newPrice, setNewPrice] = useState("");
+const Edit = () => {
+  const idProduct = Number(useParams().id);
+
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("http://via.placeholder.com/150x150");
+  const [price, setPrice] = useState("");
+
+  useEffect(() => {
+    productsService
+      .getProduct(idProduct)
+      .then((productToEdit) => {
+        setName(productToEdit.name);
+        setPrice(productToEdit.price);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [idProduct]);
 
   const handleChangeName = (event) => {
-    setNewName(event.target.value);
+    setName(event.target.value);
   };
 
   const handleChangeImage = (event) => {
-    setNewImage(event.target.value);
+    setImage(event.target.value);
   };
 
   const handleChangePrice = (event) => {
-    setNewPrice(event.target.value);
+    setPrice(event.target.value);
   };
 
-  const handleSubmitAddProduct = (event) => {
+  const handleSubmitEditProduct = (event) => {
     event.preventDefault();
 
-    const productToAdd = {
-      name: newName,
-      image: newImage,
-      price: newPrice,
+    const productToEdit = {
+      id: idProduct,
+      name: name,
+      image: image,
+      price: Number(price),
     };
 
-    productsService.create(productToAdd);
-    setNewName("");
-    setNewImage("");
-    setNewPrice("");
+    productsService.edit(productToEdit);
+    setName("");
+    setImage("");
+    setPrice("");
 
-    alert("Producto agregado");
+    alert("Producto editado.");
   };
 
   return (
@@ -64,7 +79,7 @@ const FormAddProduct = () => {
       <div className="container-fluid mt-4">
         <div className="card">
           <div className="card-body">
-            <form onSubmit={handleSubmitAddProduct}>
+            <form onSubmit={handleSubmitEditProduct}>
               <div className="row">
                 <div className="col mb-4">
                   <img
@@ -98,7 +113,7 @@ const FormAddProduct = () => {
                       name="name"
                       className="form-control"
                       onChange={handleChangeName}
-                      value={newName}
+                      value={name}
                       required
                     />
                   </div>
@@ -113,7 +128,7 @@ const FormAddProduct = () => {
                       name="price"
                       className="form-control"
                       onChange={handleChangePrice}
-                      value={newPrice}
+                      value={price}
                       required
                     />
                   </div>
@@ -139,4 +154,4 @@ const FormAddProduct = () => {
   );
 };
 
-export default FormAddProduct;
+export default Edit;

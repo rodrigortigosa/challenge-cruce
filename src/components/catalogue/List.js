@@ -3,15 +3,15 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import productsService from "../services/products";
+import productsService from "../../services/products";
 import {
   CATALOGO,
   EDITAR_PRODUCTO,
   NUEVO_PRODUCTO,
-} from "../config/router/paths";
+} from "../../config/router/paths";
 import { generatePath, Link } from "react-router-dom";
 
-const Catalogue = () => {
+const List = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -126,4 +126,4 @@ const Catalogue = () => {
   );
 };
 
-export default Catalogue;
+export default List;
